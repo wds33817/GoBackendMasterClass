@@ -37,3 +37,5 @@ Phantom READ: A transaction re-executes a query to find rows that satisfy a cond
 Serialization Anomaly: The result of a group of concurrent committed transaction is impossible to achieve if we try to run them sequentially in any order without overlapping.
 
 
+
+docker exec -it mysql8 mysql -uroot -psecret SimpleBank
