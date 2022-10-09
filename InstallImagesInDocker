@@ -25,3 +25,15 @@ docker run --name mysql -d \
     mysql:8
 
 
+
+Read Phenomena:
+
+Dirty READ: A transaction reads data written by other concurrent uncommitted transaction.
+
+Non-Repeatable READ: A transaction reads the same row twice and sees different value because it has been modified by other committed transaction.
+
+Phantom READ: A transaction re-executes a query to find rows that satisfy a condition and sees a different set of rows, due to changes by other committed transaction.
+
+Serialization Anomaly: The result of a group of concurrent committed transaction is impossible to achieve if we try to run them sequentially in any order without overlapping.
+
+
