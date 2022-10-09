@@ -1,2 +1,15 @@
+Install images:
 docker pull <image>:<tag>
+docker pull mysql:8.0
+
+docker images
+docker ps
+
+Start a container:
+docker run --name <container_name> -e <environment_variable> -d <image>:<tag>
+
+Port mapping:
+docker run --name <container_name> -e <environment_variable> -p <host_ports:container_ports> -d <image>:<tag>
+
+
 
