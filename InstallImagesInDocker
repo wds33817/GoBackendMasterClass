@@ -13,5 +13,15 @@ docker run --name <container_name> -e <environment_variable> -p <host_ports:cont
 docker run --name postgres12 -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:12-alpine
 
 
+Run command in container:
+docker exec -it <container_name_or_id> <command> [args]
+docker exec -it postgres12 psql -U root
+
+
+docker run --name mysql -d \
+    -p 3306:3306 \
+    -e MYSQL_ROOT_PASSWORD=change-me \
+    --restart unless-stopped \
+    mysql:8
 
 
