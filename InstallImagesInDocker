@@ -44,3 +44,6 @@ mysql> use SimpleBank;
 mysql> select @@transaction_isolation;
 mysql> select @@global.transaction_isolation;
 
+
+mysql> set session transaction isolation level read uncommitted;
+Query OK, 0 rows affected (0.00 sec)
