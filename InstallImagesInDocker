@@ -10,6 +10,8 @@ docker run --name <container_name> -e <environment_variable> -d <image>:<tag>
 
 Port mapping:
 docker run --name <container_name> -e <environment_variable> -p <host_ports:container_ports> -d <image>:<tag>
+docker run --name postgres12 -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:12-alpine
+
 
 
 
