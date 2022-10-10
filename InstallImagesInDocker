@@ -78,7 +78,7 @@ mysql> select @@transaction_isolation;
 
 
 
-[Same query was executed but different result was returned]
+[Same query was executed but different result was returned, due to other committed transaction, this is called phantom read phenomenon]
 mysql> select * from accounts where balance >= 90;
 +----+-------+---------+----------+---------------------+
 | id | owner | balance | currency | created_at          |
