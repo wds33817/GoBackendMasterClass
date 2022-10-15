@@ -97,3 +97,34 @@ mysql> select * from accounts where balance >= 90;
 |  3 | three |     100 | USD      | 2020-09-06 15:09:38 |
 +----+-------+---------+----------+---------------------+
 
+
+simple_bank=# show transaction isolation level;
+ transaction_isolation 
+-----------------------
+ read committed
+(1 row)
+
+simple_bank=# begin;
+BEGIN
+simple_bank=*# set transaction isolation level read uncommitted;
+SET
+simple_bank=*# show transaction isolation level;
+ transaction_isolation 
+-----------------------
+ read uncommitted
+(1 row)
+
+simple_bank=# begin;
+BEGIN
+simple_bank=*# set transaction isolation level read uncommitted;
+SET
+simple_bank=*# show transaction isolation level;
+ transaction_isolation 
+-----------------------
+ read uncommitted
+(1 row)
+
+
+
+
+
