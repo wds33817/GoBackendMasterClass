@@ -125,6 +125,57 @@ simple_bank=*# show transaction isolation level;
 (1 row)
 
 
+Postgres:
+read uncommitted = read committed
+
+simple_bank=# begin;
+BEGIN
+simple_bank=*# set transaction isolation level read uncommitted;
+SET
+simple_bank=*# show transaction isolation level;
+ transaction_isolation 
+-----------------------
+ read uncommitted
+(1 row)
+simple_bank=*# select * from accounts;
+simple_bank=*# update accounts set balance = balance - 10 where id = 1 returning *;
+ id | owner  | balance | currency |          created_at           
+----+--------+---------+----------+-------------------------------
+  1 | hafxsj |     717 | CAD      | 2022-10-03 06:03:17.857148+00
+(1 row)
+UPDATE 1
+simple_bank=*# commit;
+
+
+simple_bank=# begin;
+BEGIN
+simple_bank=*# set transaction isolation level read uncommitted;
+SET
+simple_bank=*# show transaction isolation level;
+ transaction_isolation 
+-----------------------
+ read uncommitted
+(1 row)
+
+simple_bank=*# select * from accounts where id = 1;
+ id | owner  | balance | currency |          created_at           
+----+--------+---------+----------+-------------------------------
+  1 | hafxsj |     727 | CAD      | 2022-10-03 06:03:17.857148+00
+(1 row)
+
+simple_bank=*# select * from accounts where id = 1;
+ id | owner  | balance | currency |          created_at           
+----+--------+---------+----------+-------------------------------
+  1 | hafxsj |     727 | CAD      | 2022-10-03 06:03:17.857148+00
+(1 row)
+
+simple_bank=*# select * from accounts where id = 1;
+ id | owner  | balance | currency |          created_at           
+----+--------+---------+----------+-------------------------------
+  1 | hafxsj |     717 | CAD      | 2022-10-03 06:03:17.857148+00
+(1 row)
+
+simple_bank=*# commit;
 
 
 
